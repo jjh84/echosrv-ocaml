@@ -1,0 +1,4 @@
+(executable
+ (public_name echosrv)
+ (name main)
+ (libraries echosrv stdio base cmdliner fmt fmt.tty logs.fmt lwt lwt.unix logs logs.lwt))

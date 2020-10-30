@@ -1,0 +1,3 @@
+(test
+ (name echosrv)
+ (libraries base cmdliner lwt lwt.unix))
