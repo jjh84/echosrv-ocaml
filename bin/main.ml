@@ -28,7 +28,6 @@ let accept_connection conn =
   let fd, _ = conn in
   let ic = Lwt_io.of_fd ~mode:Lwt_io.Input fd in
   let oc = Lwt_io.of_fd ~mode:Lwt_io.Output fd in
-  (* 아래 on_failure는 Lwt.bind 되지 않는 statement이다. 즉 별개 쓰레드에서 동작하게 된다. *)
   Lwt.on_failure (echo_handler ic oc) (fun e -> Logs.err (fun m -> m "%s" (Exn.to_string e) ));
   Lwt.return ()
 
